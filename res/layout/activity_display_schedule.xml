@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScheduleLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:background="@android:color/white"
+    android:stretchColumns="*" >
+
+    <TableRow
+        android:id="@+id/TableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_light" >
+
+        <TextView
+            android:id="@+id/scheduleTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_span="2"
+            android:text="@string/schedule_title"
+            android:textSize="30sp" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/inputInbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="input inbox"
+            android:imeOptions="actionDone" />
+
+        <Button
+            android:id="@+id/inboxSaver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="save" />
+
+	</TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" 
+        android:layout_weight="1"
+        >
+
+       <ListView
+                android:id="@+id/listView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:layout_span="2"
+                >
+       </ListView>
+
+        
+    </TableRow>
+    
+
+</TableLayout>

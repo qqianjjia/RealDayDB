@@ -1,0 +1,47 @@
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/inboxLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:background="@android:color/white"
+    android:stretchColumns="*" >
+
+    <TableRow
+        android:id="@+id/inboxTableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_light" >
+
+        <TextView
+            android:id="@+id/inboxTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_span="2"
+            android:text="@string/inbox_title"
+            android:textSize="30sp" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/inboxTableRow2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+       <ListView
+           android:id="@+id/inboxListView1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_span="2" >
+
+       </ListView>
+
+        
+    </TableRow>
+    
+
+</TableLayout>
