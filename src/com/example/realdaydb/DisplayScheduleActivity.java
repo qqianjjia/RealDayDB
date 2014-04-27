@@ -32,7 +32,11 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
-
+/**
+ * DislplayScheduleActivity display the schedule of today in screen
+ * @author qianjia
+ *
+ */
 public class DisplayScheduleActivity extends Activity {
 
 	public class RealDayClientFactory {
@@ -82,11 +86,13 @@ public class DisplayScheduleActivity extends Activity {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			DummyAddInbox();
+			dummyAddInbox();
 		}
 
 	}
-
+/**
+ * add inboxItem into inbox
+ */
 	private void addInbox() {
 		inboxEdit = (EditText) findViewById(R.id.inputInbox);
 		inboxSave = (Button) findViewById(R.id.inboxSaver);
@@ -120,8 +126,10 @@ public class DisplayScheduleActivity extends Activity {
 		}
 
 	};
-
-	private void DummyAddInbox() {
+/**
+ *  add inboxItem into inbox
+ */
+	private void dummyAddInbox() {
 		inboxEdit = (EditText) findViewById(R.id.inputInbox);
 		inboxSave = (Button) findViewById(R.id.inboxSaver);
 		inboxSave.setOnClickListener(dummySaveListener);
@@ -143,7 +151,10 @@ public class DisplayScheduleActivity extends Activity {
 		}
 
 	};
-
+/**
+ * display the schedule in the listView
+ * @throws ParseException
+ */
 	private void populateListView() throws ParseException {
 		Date today = new Date();
 		String stoday = sdf2.format(today);
@@ -237,7 +248,10 @@ public class DisplayScheduleActivity extends Activity {
 		}
 
 	};
-
+/**
+ * display the schedule in the listView
+ * @throws ParseException
+ */
 	private void dummyPopulateListView() throws ParseException {
 
 		schedule = client.getSchedule(client.getUser(username),
@@ -336,7 +350,9 @@ public class DisplayScheduleActivity extends Activity {
 		}
 	};
 
-	// TODO Auto-generated method stub
+/**
+ * create the menu
+ */
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -347,7 +363,9 @@ public class DisplayScheduleActivity extends Activity {
 		return true;
 		// end method onCreateOptionsMenu
 	}
-
+/**
+ * set the action of itemselected
+ */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// create a new Intent to launch the AddEditContact Activity

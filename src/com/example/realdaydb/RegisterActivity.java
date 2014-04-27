@@ -12,7 +12,11 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.support.v4.app.NavUtils;
-
+/**
+ * RegisterActivity display the screen of add new user
+ * @author qianjia
+ *
+ */
 public class RegisterActivity extends Activity {
 	private Button registerSave = null;
 	private DatabaseConnector databaseConnector;

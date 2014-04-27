@@ -16,7 +16,11 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.support.v4.app.NavUtils;
-
+/**
+ * ViewItemActivity show the information of the item
+ * @author qianjia
+ *
+ */
 public class ViewItemActivity extends Activity {
 	String itemId;
 	DatabaseConnector databaseConnector;
@@ -76,7 +80,9 @@ public class ViewItemActivity extends Activity {
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 
 	}
-
+/**
+ * create the menu
+ */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
@@ -84,6 +90,9 @@ public class ViewItemActivity extends Activity {
 		getMenuInflater().inflate(R.menu.view_item, menu);
 		return true;
 	}
+	/**
+	 * set the action the the itemselected,included edit and delete
+	 */
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -113,7 +122,9 @@ public class ViewItemActivity extends Activity {
 		}
 
 	}
-
+ /**
+  * delete the item
+  */
 	private void deleteItem() {
 		databaseConnector.deleteItem(Integer.parseInt(itemId));
 

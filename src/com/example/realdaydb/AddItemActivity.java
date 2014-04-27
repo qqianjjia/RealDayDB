@@ -16,7 +16,11 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.support.v4.app.NavUtils;
-
+/**
+ * AddItemActivity add new item into schedule or update item into schedule
+ * @author qianjia
+ *
+ */
 public class AddItemActivity extends Activity {
 	String username;
 	private EditText date;
@@ -62,7 +66,9 @@ public class AddItemActivity extends Activity {
 			saveItem();
 			finish();
 		}
-
+/**
+ * if itemId exists then update the item,else create a new item
+ */
 		private void saveItem() {
 			if (!extras.containsKey("itemId")) {
 				username = extras.getString("username");

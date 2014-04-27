@@ -5,12 +5,19 @@ import java.util.Date;
 
 import android.content.Context;
 import android.database.Cursor;
-
+/**
+ * implement the HttpRealDayClient
+ * @author qianjia
+ *
+ */
 public class HttpRealDayClient implements RealDayClient {
 	private DatabaseConnector databaseConnector;
 
 	// private Context context = null;
-
+/**
+ * HttpRealDayClient conscructor 
+ * @param context
+ */
 	public HttpRealDayClient(Context context) {
 		databaseConnector = new DatabaseConnector(context);
 	}

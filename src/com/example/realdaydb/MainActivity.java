@@ -19,7 +19,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.util.Log;
 
+/**
+ * MainActivity show the login screen
+ * 
+ * @author qianjia
+ * 
+ */
 public class MainActivity extends Activity {
+	
 	private EditText username = null;
 	private EditText password = null;
 	private Button loginButton = null;
@@ -27,6 +34,10 @@ public class MainActivity extends Activity {
 	DateFormat sdf1 = new SimpleDateFormat("hh:mm:ss");
 	DateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
 	DatabaseConnector databaseConnector;
+
+	/**
+	 * initialize the data
+	 */
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +49,7 @@ public class MainActivity extends Activity {
 		registerButton = (Button) findViewById(R.id.register);
 		// initialize the database
 		databaseConnector = new DatabaseConnector(MainActivity.this);
+
 		databaseConnector.insertContact("rose", "user2@gmail.com", "user2",
 				"123");
 		databaseConnector.insertContact("mike", "user3@gmail.com", "user3",
@@ -50,23 +62,23 @@ public class MainActivity extends Activity {
 			databaseConnector.insertItem("user2", stoday,
 					sdf1.parse("8:00:00"), sdf1.parse("9:00:00"), "homework1",
 					"task", "undone");
-		
+
 			databaseConnector.insertItem("user2", stoday,
 					sdf1.parse("10:00:00"), sdf1.parse("11:00:00"),
 					"chinese class", "event", "undone");
-	
+
 			databaseConnector.insertItem("user2", stoday,
 					sdf1.parse("12:00:00"), sdf1.parse("13:00:00"),
 					"homework2", "task", "done");
-		
+
 			databaseConnector.insertItem("user3", stoday,
 					sdf1.parse("14:00:00"), sdf1.parse("15:00:00"),
 					"homework3", "task", "done");
-	
+
 			databaseConnector.insertItem("user2", stoday,
 					sdf1.parse("16:00:00"), sdf1.parse("17:00:00"), "quiz",
 					"task", "undone");
-			
+
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

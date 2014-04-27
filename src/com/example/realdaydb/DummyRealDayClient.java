@@ -6,7 +6,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.text.format.Time;
-
+/**
+ * implement the DummyRealDayClient
+ * @author qianjia
+ *
+ */
 public class DummyRealDayClient implements RealDayClient {
 	Inbox inbox = new Inbox();
 

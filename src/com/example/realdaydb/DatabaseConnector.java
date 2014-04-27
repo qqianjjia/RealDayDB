@@ -13,29 +13,49 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.util.Log;
-
+/**
+ * DatabaseConnector include the operation of the database
+ * @author qianjia
+ *
+ */
 public class DatabaseConnector {
 	private static final String DATABASE_NAME = "db";
 	private SQLiteDatabase database;
 	private DatabaseOpenHelper databaseOpenHelper;
 	DateFormat sdf1 = new SimpleDateFormat("hh:mm:ss");
-	DateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
-
+/**
+ * DatabseConnector constructor 
+ * @param context
+ */
 	DatabaseConnector(Context context) {
 		databaseOpenHelper = new DatabaseOpenHelper(context, DATABASE_NAME,
 				null, 1);
 
 	};
-
+/**
+ * open the database
+ * @throws SQLException
+ */
 	public void open() throws SQLException {
 		database = databaseOpenHelper.getWritableDatabase();
 	}
-
+/**
+ * close the database
+ */
 	public void close() {
 		if (database != null)
 			database.close(); // close the database connection
 	}
-
+/**
+ * insert item into schedule
+ * @param name reference of the username
+ * @param date reference of the date 
+ * @param beginTime reference of the beginTime
+ * @param endTime reference of the endTime
+ * @param description the information of the task or event
+ * @param type  indicate if the item is task or event
+ * @param state indicate if the item is done or undone
+ */
 	public void insertItem(String name, String date, Date beginTime,
 			Date endTime, String description, String type, String state) {
 		open();
@@ -69,7 +89,12 @@ public class DatabaseConnector {
 		}
 
 	}
-
+/**
+ * get the schedule information
+ * @param specialUsername  reference of the username
+ * @param date reference of the date
+ * @return cursor
+ */
 	public Cursor getSchedule(String specialUsername, String date) {
 		Log.i("Database", "database getSchedule for " + specialUsername + " "
 				+ date);
@@ -87,13 +112,23 @@ public class DatabaseConnector {
 		 */
 
 	}
-
+/**
+ * get the item information
+ * @param id the item id
+ * @return cursor 
+ */
 	public Cursor getItem(int id) {
 		open();
 		return database.query("schedule", null, "_id=" + id, null, null, null,
 				null);
 	}
-
+/**
+ * insert new user
+ * @param name reference of name
+ * @param email reference of email
+ * @param username reference of username
+ * @param password reference of password
+ */
 	public void insertContact(String name, String email, String username,
 			String password) {
 		open();
@@ -119,6 +154,11 @@ public class DatabaseConnector {
 
 	} // end method insertContact
 
+	/**
+	 * get the information of the user
+	 * @param specialUsername reference of username
+	 * @return cursor
+	 */
 	public Cursor getContact(String specialUsername) {
 		open();
 		return database.query("contact", new String[] { "name", "email",
@@ -126,7 +166,12 @@ public class DatabaseConnector {
 				new String[] { specialUsername }, null, null, null, null);
 
 	}
-
+/**
+ * check if the username and password are correct
+ * @param username reference of username
+ * @param password  reference of password
+ * @return true if authorization succeeds
+ */
 	public boolean authorizeUser(String username, String password) {
 		open();
 		Cursor cursor = database.query("contact", null, "username=?"
@@ -142,7 +187,12 @@ public class DatabaseConnector {
 		}
 
 	}
-
+/**
+ *  insert inboxItem into inbox
+ * @param date the reference of date
+ * @param description the description of the inboxItem
+ * @param username reference of the username
+ */
 	public void insertInbox(String date, String description, String username) {
 		open();
 
@@ -163,7 +213,11 @@ public class DatabaseConnector {
 		}
 
 	}
-
+/**
+ * get the information of the inbox
+ * @param specialUsername the reference of the username
+ * @return cursor
+ */
 	public Cursor getInbox(String specialUsername) {
 
 		String selectQuery = "SELECT * from inbox where username=?;";
