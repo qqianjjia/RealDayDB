@@ -144,6 +144,7 @@ public class DisplayScheduleActivity extends Activity {
 			// inboxEdit.setText("");
 			Intent i = new Intent(DisplayScheduleActivity.this,
 					DisplayInboxActivity.class);
+		
 			i.putExtra("username", username);
 			i.putExtra("content", inboxEdit.getText().toString());
 			startActivity(i);

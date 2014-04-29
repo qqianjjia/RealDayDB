@@ -108,7 +108,7 @@ public class MainActivity extends Activity {
 					Intent intent1 = new Intent(MainActivity.this,
 							DisplayScheduleActivity.class);
 					intent1.putExtra("username", username.getText().toString());
-					startActivity(intent1);
+					
 
 					Log.i("QQIANJJIA", "startActivity(intent1)");
 					startActivity(intent1);
